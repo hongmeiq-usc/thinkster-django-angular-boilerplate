@@ -15,3 +15,8 @@ dist/
 
 # Staticfiles
 staticfiles/
+
+# others
+.pydevproject
+.project
+*.log

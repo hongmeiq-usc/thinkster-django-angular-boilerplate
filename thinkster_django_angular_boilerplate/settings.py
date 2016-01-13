@@ -10,6 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+import dj_database_url
+from django.conf.global_settings import AUTH_USER_MODEL
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -38,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'compressor',
+    'authentication',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +62,6 @@ WSGI_APPLICATION = 'thinkster_django_angular_boilerplate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -113,3 +116,5 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+
+AUTH_USER_MODEL = 'authentication.Account'
